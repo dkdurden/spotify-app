@@ -14,4 +14,4 @@ export const auth = {
 export const apiUrl =
   process.env.NODE_ENV !== "production"
     ? "http://localhost:3000"
-    : "spotify-app-delta.vercel.app";
+    : "https://spotify-app-delta.vercel.app";
