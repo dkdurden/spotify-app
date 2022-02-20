@@ -7,7 +7,7 @@
         { "key": "Access-Control-Allow-Credentials", "value": "true" },
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "http://localhost:3001"
+          "value": "https://determined-booth-c5c2f9.netlify.app"
         },
         {
           "key": "Access-Control-Allow-Methods",
