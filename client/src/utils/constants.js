@@ -10,3 +10,8 @@ export const auth = {
   scope:
     "streaming user-read-email user-read-private user-library-read user-top-read user-library-modify user-read-playback-state user-modify-playback-state",
 };
+
+export const apiUrl =
+  process.env.NODE_ENV !== "production"
+    ? "http://localhost:3000"
+    : "https://spotify-app-dkdurden.vercel.app/";

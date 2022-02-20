@@ -10,7 +10,7 @@ import styled from "@emotion/styled";
 import { SearchResult } from "./SearchResult";
 import { Player } from "./Player";
 import { useAuth } from "../hooks/useAuth";
-import { auth } from "../utils/constants";
+import { auth, apiUrl } from "../utils/constants";
 
 const spotifyApi = new SpotifyWebApi({
   clientId: auth.client_id,
@@ -48,7 +48,7 @@ export function Dashboard({ code }) {
     }
 
     axios
-      .get("http://localhost:3001/lyrics", {
+      .get(`${apiUrl}/lyrics`, {
         params: {
           track: playingTrack.title,
           artist: playingTrack.artist,
