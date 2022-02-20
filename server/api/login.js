@@ -1,7 +1,18 @@
 const SpotifyWebApi = require("spotify-web-api-node");
 
 module.exports = (req, res) => {
-  const code = req.body.code;
+  if (req.method === "OPTIONS") {
+    return res.status(200).send("ok");
+  }
+
+  const code = req.body?.code;
+
+  if (!code) {
+    res.status(400).send("Oops!");
+    return;
+  }
+
+  console.log(process.env.REDIRECT_URI);
 
   const spotifyApi = new SpotifyWebApi({
     redirectUri: process.env.REDIRECT_URI,
@@ -19,6 +30,6 @@ module.exports = (req, res) => {
       });
     })
     .catch(() => {
-      res.sendStatus(400);
+      res.status(500).send("Oops!");
     });
 };

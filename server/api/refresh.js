@@ -1,14 +1,16 @@
-// require("dotenv").config();
-// const express = require("express");
-// const cors = require("cors");
-const bodyParser = require("body-parser");
-// const lyricsFinder = require("lyrics-finder");
 const SpotifyWebApi = require("spotify-web-api-node");
 
 module.exports = (req, res) => {
-  const refreshToken = req.body.refreshToken;
+  if (req.method === "OPTIONS") {
+    return res.status(200).send("ok");
+  }
 
-  console.log(req.body);
+  const refreshToken = req.body?.refreshToken;
+
+  if (!refreshToken) {
+    res.status(400).send("Oops!");
+    return;
+  }
 
   const spotifyApi = new SpotifyWebApi({
     redirectUri: process.env.REDIRECT_URI,

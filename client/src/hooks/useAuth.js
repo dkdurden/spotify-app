@@ -8,7 +8,7 @@ export function useAuth(code) {
 
   React.useEffect(() => {
     axios
-      .post("http://localhost:3001/login", { code })
+      .post("http://localhost:3000/api/login", { code })
       .then((res) => {
         setAccessToken(res.data.accessToken);
         setRefreshToken(res.data.refreshToken);
